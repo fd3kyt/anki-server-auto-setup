@@ -11,7 +11,7 @@ if not specified, use current IP
 common_name=$1
 
 if [[ -z ${common_name} ]];then
-    common_name=$(hostname -I)
+    common_name=$(dig +short myip.opendns.com @resolver1.opendns.com)
 fi
 
 
