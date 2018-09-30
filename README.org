@@ -1,0 +1,63 @@
+#+TITLE:anki_sync_server_setup
+#+OPTIONS: ^:nil toc:nil
+
+
+
+* basic usage
+1. =git clone https://github.com/fd3kyt/anki-server-auto-setup.git=
+2. =sudo ./all.sh=
+3. after reinstalling, even if the account has not changed, need to
+   log in again
+
+** old note :ARCHIVE:
+#+BEGIN_SRC bash :results outptut drawer
+../../anki-sync-server/ankiserverctl.py adduser anki
+LANG=en_US.UTF-8 python ../../anki-sync-server/ankiserverctl.py debug
+#+END_SRC
+
+* need to change :ARCHIVE:
+- +anki_server/supervisor/anki_server.conf+
+  - user=[user_name]
+  - don't need to change this: ~user=anki_server~
+    - =sudo adduser anki_server=
+
+* about the certificate
+1. run the script
+   1. need to use public IP
+2. =sudo nginx -s reload=
+3. get the =CA.crt= for PC and android
+
+* verify if the server is running
+Open https://ip_address:27702/ in browser.
+
+Should be able to see "AnkiServer <version number>".
+
+* workflow :ARCHIVE:
+#+BEGIN_SRC bash :results outptut drawer
+  sudo adduser anki_server
+  sudo usermod -aG sudo anki_server # maybe?
+
+  su anki_server
+  cd
+  # add the content of local public key into ~/.ssh/authorized_keys
+  mkdir ~/.ssh
+  touch ~/.ssh/authorized_keys
+  chmod 700 ~/.ssh && chmod 600 ~/.ssh/authorized_keys
+#+END_SRC
+
+
+#+BEGIN_SRC bash :results outptut drawer
+# rsync -avzhe ssh anki-sync-server anki_server@111.230.112.173:/home/anki_server
+rsync -avzhe ssh anki_server anki_server@111.230.112.173:/home/anki_server
+# rsync -avzhe ssh ~/Sources/anki-2.0.47 anki_server@111.230.112.173:/home/anki_server
+#+END_SRC
+
+
+1. =sudo adduser anki_server=
+   1. setup ssh access
+2. copy the folders to the machine
+   1. only need =anki_server/=, will clone =anki= and
+      =anki-sync-server= in the script
+3. =setup_anki_server.sh=
+4. =generate_certificate.sh=
+5. =start_anki_server.sh=
