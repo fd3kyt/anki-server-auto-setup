@@ -13,10 +13,4 @@ pip install --upgrade httplib2
 pip install webob PasteDeploy PasteScript sqlalchemy simplejson
 # apt install python-pastescript
 
-apt-get install supervisor
-cp ./supervisor/anki_server.conf /etc/supervisor/conf.d/anki_server.conf
-supervisorctl reload
-
-apt-get install nginx
-ln -s -f /home/anki_server/anki_server/nginx/sites-available/anki_server /etc/nginx/sites-enabled/
-nginx -s reload
+apt-get install -y xdg-utils supervisor nginx
