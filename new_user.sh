@@ -8,5 +8,5 @@ sudo adduser $user
 
 mkdir -p $main_dir
 cp -r ./server_data/* $main_dir
-chown -r $user:$user $main_dir
+chown -R $user:$user $main_dir
 (cd $main_dir/nginx_certificate && su $user -c ./create-certificate.sh)
