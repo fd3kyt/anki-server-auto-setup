@@ -11,6 +11,14 @@ python2.7 get-pip.py --force-reinstall
 pip install --upgrade pip
 pip install --upgrade httplib2
 pip install webob PasteDeploy PasteScript sqlalchemy simplejson
-# apt install python-pastescript
 
 apt-get install -y xdg-utils supervisor nginx
+
+mkdir -p applications
+cd applications || exit 1
+
+git clone https://github.com/fd3kyt/anki-2.0.47.git
+(cd anki-2.0.47 && make install)
+
+git clone https://github.com/fd3kyt/anki-sync-server.git
+(cd anki-sync-server && pip install -e .)
