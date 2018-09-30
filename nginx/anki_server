@@ -22,8 +22,8 @@ server {
     # listen [::]:27703;
 
     # Set TLS certificates to use for HTTPS access
-    ssl_certificate     /home/anki_server/server_data/certificate/CA.crt;
-    ssl_certificate_key /home/anki_server/server_data/certificate/private.key;
+    ssl_certificate     /home/anki_server/server_data/nginx_certificate/CA.crt;
+    ssl_certificate_key /home/anki_server/server_data/nginx_certificate/private.key;
 
     location / {
         # Prevent nginx from rejecting larger media files
