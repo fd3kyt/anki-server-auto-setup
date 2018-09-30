@@ -1,8 +1,2 @@
-nginx/certificate/*.crt
-nginx/certificate/*.pem
-nginx/certificate/*.key
-server_data/*
-!server_data/production.ini
-!server_data/logging.conf
 applications/
 /CA.crt
