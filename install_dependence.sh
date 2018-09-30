@@ -2,7 +2,7 @@
 
 # run this with sudo
 
-set -e
+set -x
 
 export LC_ALL=C  # if "unsupported locale setting"
 curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
@@ -21,4 +21,4 @@ git clone https://github.com/fd3kyt/anki-2.0.47.git
 (cd anki-2.0.47 && make install)
 
 git clone https://github.com/fd3kyt/anki-sync-server.git
-(cd anki-sync-server && pip install -e .)
+(cd anki-sync-server && pip install .)
