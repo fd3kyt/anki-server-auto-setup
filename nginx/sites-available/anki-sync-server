@@ -1,0 +1,38 @@
+##
+# You should look at the following URL's in order to grasp a solid understanding
+# of Nginx configuration files in order to fully unleash the power of Nginx.
+# http://wiki.nginx.org/Pitfalls
+# http://wiki.nginx.org/QuickStart
+# http://wiki.nginx.org/Configuration
+#
+# Generally, you will want to move this file somewhere, and start with a clean
+# file but keep this around for reference. Or just disable in sites-enabled.
+#
+# Please see /usr/share/doc/nginx-doc/examples/ for more detailed examples.
+##
+
+server {
+
+    # https
+    listen 27702 ssl;
+    listen [::]:27702 ssl;
+
+    # # allow http access
+    # listen 27703;
+    # listen [::]:27703;
+
+    # Set TLS certificates to use for HTTPS access
+    ssl_certificate     /home/anki_server/anki_server/nginx/certificate/CA.crt;
+    ssl_certificate_key /home/anki_server/anki_server/nginx/certificate/priv_and_pub.key;
+
+    location / {
+        # Prevent nginx from rejecting larger media files
+        client_max_body_size 0;
+
+        proxy_set_header Host 127.0.0.1:27701;
+        proxy_pass http://127.0.0.1:27701;
+
+        # do NOT add this if you don't want the server know the origin host
+        # include proxy_params;
+    }
+}
