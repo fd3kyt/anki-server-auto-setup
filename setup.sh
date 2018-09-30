@@ -27,3 +27,4 @@ sudo ./start_anki_server.sh
 
 echo "########## all done ##########"
 echo "########## verify: open https://<ip_address>:27702 ##########"
+echo "########## sync data is stored in $main_dir ##########"
