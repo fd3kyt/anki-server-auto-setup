@@ -4,6 +4,8 @@
 
 set -x
 
+echo "########## install dependence ##########"
+
 export LC_ALL=C  # if "unsupported locale setting"
 curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 python2.7 get-pip.py --force-reinstall
@@ -22,3 +24,5 @@ git clone https://github.com/fd3kyt/anki-2.0.47.git
 
 git clone https://github.com/fd3kyt/anki-sync-server.git
 (cd anki-sync-server && pip install .)
+
+echo "########## install dependence done ##########"
