@@ -7,4 +7,5 @@ if [[ -z ${target_host} ]];then
     exit 1
 fi
 
-scp "${target_host}:/home/anki_server/anki_server/nginx/certificate/CA.crt" .
+scp "${target_host}:/home/anki_server/anki_server/nginx/certificate/CA.crt" \
+    ./nginx/certificate/
