@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 user=anki_server
 main_dir="/home/$user/server_data"
 
