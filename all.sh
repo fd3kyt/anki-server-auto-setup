@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-sudo ./setup_anki_server.sh
+sudo ./new_user.sh
+sudo ./install_dependence.py
 su anki_server -c ./add_account.sh
-su anki_server -c ./generate_certificate.sh
 sudo ./start_anki_server.sh
