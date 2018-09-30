@@ -19,7 +19,7 @@ chown -R $user:$user $main_dir
      su $user -c "chmod +x ./create-certificate.sh" && \
      su $user -c "./create-certificate.sh")
 
-(cd $main_dir && su $user -c "ankiserverctl.py adduser")
+(cd $main_dir && su $user -c "ankiserverctl.py adduser anki")
 
 
 sudo ./start_anki_server.sh
