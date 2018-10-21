@@ -9,7 +9,8 @@ if [[ -z ${target_host} ]];then
 fi
 
 if [[ -z $output_dir ]];then
-    output_dir="."
+    output_dir="./pull_certificate/"
+    mkdir -p $output_dir
 fi
 
 scp "${target_host}:/home/anki_server/server_data/nginx_certificate/CA.crt" "$output_dir"
