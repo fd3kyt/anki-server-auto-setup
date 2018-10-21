@@ -16,7 +16,13 @@ fi
 
 
 android_option_file="/tmp/create_certificate_android_options.txt"
-echo "basicConstraints=CA:true" > ${android_option_file}
+echo "
+basicConstraints=CA:true
+subjectAltName = @alternate_names
+
+[alternate_names]
+DNS.1 = ${common_name}
+" > ${android_option_file}
 
 # Create self-signed certificate using these commands
 openssl genrsa -out private.key 2048
