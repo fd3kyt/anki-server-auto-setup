@@ -5,7 +5,7 @@
 
 * basic usage
 1. =git clone https://github.com/fd3kyt/anki-server-auto-setup.git=
-2. =sudo ./all.sh=
+2. =sudo ./setup.sh=
 3. after reinstalling, even if the account has not changed, need to
    log in again
 
