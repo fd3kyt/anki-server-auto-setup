@@ -2,11 +2,27 @@
 #+OPTIONS: ^:nil toc:nil
 
 * basic usage
-1. (if already exists: sudo rm -r anki-server-auto-setup/)
-2. git clone https://github.com/fd3kyt/anki-server-auto-setup.git
-3. cd anki-server-auto-setup && sudo ./setup.sh
-4. after reinstalling, even if the account has not changed, need to
-   log in again
+Install for the first time:
+#+BEGIN_SRC bash :results outptut drawer
+git clone https://github.com/fd3kyt/anki-server-auto-setup.git
+cd anki-server-auto-setup && sudo ./setup.sh
+#+END_SRC
+
+- User data is stored in
+  =/home/anki_server/server_data/collections/anki=.
+- Sync account:
+  - name: =anki=
+  - password: will be asked when running =setup.sh=
+
+Reinstalling:
+#+BEGIN_SRC bash :results outptut drawer
+cd anki-server-auto-setup
+git pull
+sudo ./setup.sh
+#+END_SRC
+
+If =/home/anki_server/server_data/collections/anki= already exists,
+will not create a new account, just use the existing data.
 
 ** old note :ARCHIVE:
 #+BEGIN_SRC bash :results outptut drawer
