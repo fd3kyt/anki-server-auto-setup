@@ -20,8 +20,14 @@ echo "########## generate certificate ##########"
      su $user -c "chmod +x ./create-certificate.sh" && \
      su $user -c "./create-certificate.sh")
 
-echo "########## add an account to anki sync server ##########"
-(cd $main_dir && su $user -c "ankiserverctl.py adduser anki")
+anki_account_name=anki
+if ! [[ -a ${main_dir}/collections/${anki_account_name} ]];then
+    echo "########## add an account \'${anki_account_name}\' to anki sync server ##########"
+    echo "########## please enter password for the new account ##########"
+    (cd $main_dir && su $user -c "ankiserverctl.py adduser ${anki_account_name}")
+else
+    echo "########## account \'${anki_account_name}\' already exists ##########"
+fi
 
 sudo ./start_anki_server.sh
 
