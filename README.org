@@ -1,12 +1,11 @@
 #+TITLE:anki_sync_server_setup
 #+OPTIONS: ^:nil toc:nil
 
-
-
 * basic usage
-1. git clone https://github.com/fd3kyt/anki-server-auto-setup.git
-2. cd anki-server-auto-setup && sudo ./setup.sh
-3. after reinstalling, even if the account has not changed, need to
+1. (if already exists: sudo rm -r anki-server-auto-setup/)
+2. git clone https://github.com/fd3kyt/anki-server-auto-setup.git
+3. cd anki-server-auto-setup && sudo ./setup.sh
+4. after reinstalling, even if the account has not changed, need to
    log in again
 
 ** old note :ARCHIVE:
