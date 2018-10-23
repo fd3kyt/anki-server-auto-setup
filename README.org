@@ -43,9 +43,9 @@ LANG=en_US.UTF-8 python ../../anki-sync-server/ankiserverctl.py debug
 3. get the =CA.crt= for PC and android
 
 * verify if the server is running
-Open https://ip_address:27702/ in browser.
+Open https://ip_address:27702/sync in browser.
 
-Should be able to see "AnkiServer <version number>".
+Should be able to see "Anki Sync Server".
 
 * workflow :ARCHIVE:
 #+BEGIN_SRC bash :results outptut drawer
