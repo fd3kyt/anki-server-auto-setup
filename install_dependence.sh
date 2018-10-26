@@ -27,6 +27,7 @@ cd applications || exit 1
 
 git clone https://github.com/fd3kyt/ankisyncd.git
 cd ankisyncd || exit 1
+git submodule update --init
 (cd anki-bundled && pip install -r requirements.txt && make install)
 pip install .
 
