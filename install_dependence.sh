@@ -7,8 +7,14 @@ set -x
 echo "########## install dependence ##########"
 
 export LC_ALL=C  # if "unsupported locale setting"
-curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-python2.7 get-pip.py --force-reinstall
+
+apt-get install portaudio19-dev  # for pyaudio
+apt-get install python3
+apt-get install python3-pip
+
+function pip(){
+    python3 -m pip "$@"
+}
 
 pip install --upgrade pip
 pip install --upgrade httplib2
@@ -19,10 +25,9 @@ apt-get install -y xdg-utils supervisor nginx
 mkdir -p applications
 cd applications || exit 1
 
-git clone https://github.com/fd3kyt/anki-2.0.47.git
-(cd anki-2.0.47 && make install)
-
-git clone https://github.com/fd3kyt/anki-sync-server.git
-(cd anki-sync-server && pip install .)
+git clone https://github.com/fd3kyt/ankisyncd.git
+cd ankisyncd || exit 1
+(cd anki-bundled && pip install -r requirements.txt && make install)
+pip install .
 
 echo "########## install dependence done ##########"
