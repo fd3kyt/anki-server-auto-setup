@@ -15,10 +15,20 @@ mkdir -p $main_dir
 cp -r ./server_data/* $main_dir
 chown -R $user:$user $main_dir
 
-echo "########## generate certificate ##########"
-(cd $main_dir/nginx_certificate && \
-     su $user -c "chmod +x ./generate-certificate.sh" && \
-     su $user -c "./generate-certificate.sh")
+certificate_dir=$main_dir/nginx_certificate
+echo "########## may generate a new certificate ##########"
+(cd $certificate_dir && su $user -c "chmod +x ./generate-certificate.sh")
+read -r -p "generate a new certificate in $certificate_dir? [y/N]" response
+case "$response" in
+    [yY][eE][sS]|[yY])
+        (cd $certificate_dir && su $user -c "./generate-certificate.sh")
+        echo "########## new certificate generated ##########"
+        ;;
+    *)
+        echo "########## new certificate not generated ##########"
+        echo "(You can put CA.crt and private.key to $certificate_dir manually)"
+        ;;
+esac
 
 anki_account_name=anki
 if ! [[ -a ${main_dir}/collections/${anki_account_name} ]];then
