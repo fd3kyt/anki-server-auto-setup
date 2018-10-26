@@ -18,7 +18,7 @@ chown -R $user:$user $main_dir
 certificate_dir=$main_dir/nginx_certificate
 echo "########## may generate a new certificate ##########"
 (cd $certificate_dir && su $user -c "chmod +x ./generate-certificate.sh")
-read -r -p "generate a new certificate in $certificate_dir? [y/N]" response
+read -r -p "generate a new certificate in $certificate_dir? [y/N]: " response
 case "$response" in
     [yY][eE][sS]|[yY])
         (cd $certificate_dir && su $user -c "./generate-certificate.sh")
