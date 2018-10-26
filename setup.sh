@@ -17,8 +17,8 @@ chown -R $user:$user $main_dir
 
 echo "########## generate certificate ##########"
 (cd $main_dir/nginx_certificate && \
-     su $user -c "chmod +x ./create-certificate.sh" && \
-     su $user -c "./create-certificate.sh")
+     su $user -c "chmod +x ./generate-certificate.sh" && \
+     su $user -c "./generate-certificate.sh")
 
 anki_account_name=anki
 if ! [[ -a ${main_dir}/collections/${anki_account_name} ]];then
