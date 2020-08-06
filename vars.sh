@@ -15,7 +15,11 @@ export user main_dir
 export sync_server_git sync_server_dir anki_buidled_dir
 export certificate_dir anki_account_name
 
-controller_path="${sync_server_dir}/src/ankisyncctl.py"
+controller_dir="${sync_server_dir}/src/ankisyncctl.py"
 function controller(){
-    python3 "${controller_path}" "$@"
+    python3 "${controller_dir}" "$@"
 }
+
+module_parent_dir="${sync_server_dir}/"
+module_name="ankisyncd"
+export module_parent_dir module_name

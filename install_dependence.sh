@@ -32,4 +32,7 @@ set -e
 # cd ${sync_server_dir} || exit 1
 # pip install .
 
+cat "cd ${module_parent_dir} && python3 -m ${module_name}" \
+    > ${run_module_bin_path}
+
 echo "########## install dependence done ##########"
