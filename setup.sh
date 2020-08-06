@@ -3,8 +3,6 @@
 set -x
 set -e
 
-chmod +x ./*.sh
-
 source ./vars.sh
 
 sudo ./install_dependence.sh
