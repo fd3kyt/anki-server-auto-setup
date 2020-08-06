@@ -10,7 +10,7 @@ function generate-certificate (){
     common_name=$1
 
     if [[ -z ${common_name} ]];then
-        common_name=$(./public.sh)
+        common_name=$(./public_ip.sh)
     fi
 
     android_option_file="/tmp/create_certificate_android_options.txt"

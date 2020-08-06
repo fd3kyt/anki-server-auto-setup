@@ -21,6 +21,6 @@ sudo ./start_anki_server.sh
 
 set +x
 echo "########## all done ##########"
-public_ip=$(./public.sh)
+public_ip=$(./public_ip.sh)
 echo "########## verify: open https://$public_ip:27702 ##########"
 echo "########## sync data is stored in $main_dir ##########"
