@@ -47,6 +47,9 @@ Open https://ip_address:27702/sync in browser.
 
 Should be able to see "Anki Sync Server".
 
+- http :: https://ip_address:27701/sync
+- https :: https://ip_address:27702/sync
+
 * workflow :ARCHIVE:
 #+BEGIN_SRC bash :results outptut drawer
   sudo adduser anki_server

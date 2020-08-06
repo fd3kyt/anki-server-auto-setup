@@ -24,4 +24,5 @@ set +x
 echo "########## all done ##########"
 public_ip=$(./public_ip.sh)
 echo "########## verify: open https://$public_ip:27702 ##########"
+echo "########## or: http://$public_ip:27701 ##########"
 echo "########## sync data is stored in $main_dir ##########"
