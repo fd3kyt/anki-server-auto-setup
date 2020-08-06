@@ -28,7 +28,7 @@ cd applications || exit 1
 git clone https://github.com/ankicommunity/anki-sync-server.git
 cd anki-sync-server || exit 1
 git submodule update --init
-(cd anki-bundled && pip install -r requirements.txt && make install)
+(cd src/anki-bundled && pip install -r requirements.txt && make install)
 pip install .
 
 echo "########## install dependence done ##########"
