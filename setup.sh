@@ -2,6 +2,8 @@
 
 set -x
 
+chmod +x ./*.sh
+
 source ./vars.sh
 
 sudo ./install_dependence.sh
