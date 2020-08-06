@@ -10,7 +10,7 @@ source ./vars.sh
 sudo ./install_dependence.sh
 
 echo "########## add a new user \"$user\" ##########"
-sudo adduser $user
+sudo adduser $user || true
 
 echo "########## copy data to $main_dir ##########"
 mkdir -p $main_dir
