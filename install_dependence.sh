@@ -2,6 +2,8 @@
 
 # run this with sudo
 
+source ./vars.sh
+
 set -x
 
 echo "########## install dependence ##########"
@@ -22,13 +24,12 @@ pip install webob PasteDeploy PasteScript sqlalchemy simplejson
 
 apt-get install -y xdg-utils supervisor nginx
 
-mkdir -p applications
-cd applications || exit 1
-
-git clone https://github.com/ankicommunity/anki-sync-server.git
-cd anki-sync-server || exit 1
+set -e
+# TODO: delete if already exists?
+git clone "$sync_server_git" "$sync_server_dir"
 git submodule update --init
-(cd src/anki-bundled && pip install -r requirements.txt && make install)
+(cd "${anki_buidled_dir}" && pip install -r requirements.txt && make install)
+# cd ${sync_server_dir} || exit 1
 # pip install .
 
 echo "########## install dependence done ##########"
