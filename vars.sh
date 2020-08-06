@@ -20,6 +20,6 @@ function controller(){
     python3 "${controller_dir}" "$@"
 }
 
-module_parent_dir="${sync_server_dir}/"
+module_parent_dir="${sync_server_dir}/src/"
 module_name="ankisyncd"
 export module_parent_dir module_name
