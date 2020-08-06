@@ -4,13 +4,15 @@ source ./vars.sh
 
 # https://aboutssl.org/how-to-create-and-import-self-signed-certificate-to-android-device/
 
+public_ip=$(./public_ip.sh)
+
 # "Usage: "${0} common_name". if not specified, use current IP
 function generate-certificate (){
     set -e
     common_name=$1
 
     if [[ -z ${common_name} ]];then
-        common_name=$(./public_ip.sh)
+        common_name="${public_ip}"
     fi
 
     android_option_file="/tmp/create_certificate_android_options.txt"
