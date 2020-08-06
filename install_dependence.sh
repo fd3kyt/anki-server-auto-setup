@@ -27,7 +27,7 @@ apt-get install -y xdg-utils supervisor nginx
 set -e
 # TODO: delete if already exists?
 git clone "$sync_server_git" "$sync_server_dir"
-git submodule update --init
+(cd "${sync_server_dir}" && git submodule update --init)
 (cd "${anki_buidled_dir}" && pip install -r requirements.txt && make install)
 # cd ${sync_server_dir} || exit 1
 # pip install .
