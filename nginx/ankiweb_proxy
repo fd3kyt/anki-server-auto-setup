@@ -1,0 +1,27 @@
+server {
+    listen 27703;
+
+    ssl on;
+    ssl_certificate     /home/anki_server/server_data/nginx_certificate/CA.crt;
+    ssl_certificate_key /home/anki_server/server_data/nginx_certificate/private.key;
+
+    location / {
+        # httpS here: if use "http" here, will change to https and
+        # will use "baidu.com" as address directly
+        proxy_pass https://ankiweb.net;
+    }
+}
+
+server {
+    listen 27704;
+
+    ssl on;
+    ssl_certificate     /home/anki_server/server_data/nginx_certificate/CA.crt;
+    ssl_certificate_key /home/anki_server/server_data/nginx_certificate/private.key;
+
+    location / {
+        # httpS here: if use "http" here, will change to https and
+        # will use "baidu.com" as address directly
+        proxy_pass https://msync.ankiweb.net;
+    }
+}
